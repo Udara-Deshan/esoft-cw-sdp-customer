@@ -32,6 +32,8 @@ import {AlertAndErrorInterceptor} from "./core/alert-and-error/alert-and-error.i
 import {AuthInterceptor} from "./core/auth/auth.interceptor";
 import { GetTokenComponent } from './core/components/get-token/get-token.component';
 import { MyTokensComponent } from './core/components/my-tokens/my-tokens.component';
+import { QRDialogComponent } from './core/components/qrdialog/qrdialog.component';
+import { CustomerDashboardComponent } from './core/components/customer-dashboard/customer-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { MyTokensComponent } from './core/components/my-tokens/my-tokens.compone
     LeftSideNavBarComponent,
     MenuContainerComponent,
     GetTokenComponent,
-    MyTokensComponent
+    MyTokensComponent,
+    QRDialogComponent,
+    CustomerDashboardComponent
   ],
   imports: [
     BrowserModule,

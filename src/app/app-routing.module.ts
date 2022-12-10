@@ -5,11 +5,13 @@ import {DashboardComponent} from "./core/dashboard/dashboard.component";
 import {AuthGuard} from "./core/auth/auth.guard";
 import {GetTokenComponent} from "./core/components/get-token/get-token.component";
 import {MyTokensComponent} from "./core/components/my-tokens/my-tokens.component";
+import {CustomerDashboardComponent} from "./core/components/customer-dashboard/customer-dashboard.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard],children:[
+      {path:'',component:CustomerDashboardComponent},
       {path:'fuel',component:GetTokenComponent},
       {path:'token',component:MyTokensComponent}
     ]},

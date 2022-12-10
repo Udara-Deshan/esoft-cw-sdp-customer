@@ -39,7 +39,7 @@ export class GetTokenComponent implements OnInit {
     this.matDialog.open(ApprovalDialogComponent, {
         width: '350px',
         // height: '200px',
-        data: new ApprovalDialogConfig('Alert', 'Update Successfully', '')
+        data: new ApprovalDialogConfig('Alert', 'Request Successfully', '')
       }
     );
   }
@@ -49,7 +49,12 @@ export class GetTokenComponent implements OnInit {
   }
 
   onBack() {
-
+    this.matDialog.open(ApprovalDialogComponent, {
+        width: '350px',
+        // height: '200px',
+        data: new ApprovalDialogConfig('Error', 'Fill All The Required Field', '')
+      }
+    );
   }
 
   resetForm() {
