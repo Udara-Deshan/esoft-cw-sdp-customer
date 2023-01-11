@@ -1,15 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {MatDialog} from "@angular/material/dialog";
 import {ApprovalDialogComponent} from "../../dialogs/approval-dialog/approval-dialog.component";
 import {ApprovalDialogConfig} from "../../dialogs/approval-dialog/ApprovalDialogConfig";
-import {MatDialog} from "@angular/material/dialog";
 
 @Component({
-  selector: 'app-get-token',
-  templateUrl: './get-token.component.html',
-  styleUrls: ['./get-token.component.scss']
+  selector: 'app-request-fule-quota',
+  templateUrl: './request-fule-quota.component.html',
+  styleUrls: ['./request-fule-quota.component.scss']
 })
-export class GetTokenComponent implements OnInit {
+export class RequestFuleQuotaComponent implements OnInit {
   formMode: 'SAVE' | 'UPDATE' = 'SAVE';
   auditForm!: FormGroup;
   filteredFuleStations: string[] = ['Delkanda'];
@@ -27,11 +27,11 @@ export class GetTokenComponent implements OnInit {
 
   ngOnInit(): void {
     this.auditForm = this.fb.group({
-      vehicleRegNo: new FormControl('', Validators.required),
-      tokenExpDate: new FormControl('', Validators.required),
-      status: new FormControl('', Validators.required),
+      // vehicleRegNo: new FormControl('', Validators.required),
+      // tokenExpDate: new FormControl('', Validators.required),
+      // status: new FormControl('', Validators.required),
       requestQuota: new FormControl('', Validators.required),
-      fillingTimeAndDate: new FormControl('', Validators.required),
+      //fillingTimeAndDate: new FormControl('', Validators.required),
 
     });
 
@@ -65,5 +65,6 @@ export class GetTokenComponent implements OnInit {
   resetForm() {
 
   }
+
 
 }

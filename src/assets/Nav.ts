@@ -9,6 +9,11 @@ export const NavData=[
     url: '/dashboard/fuel',
     icon: 'dashboard',
     list:[]
+  },{
+    menuName: 'Request Fuel Quota',
+    url: '/dashboard/quota',
+    icon: 'dashboard',
+    list:[]
   },
 
   {

@@ -34,6 +34,9 @@ import { GetTokenComponent } from './core/components/get-token/get-token.compone
 import { MyTokensComponent } from './core/components/my-tokens/my-tokens.component';
 import { QRDialogComponent } from './core/components/qrdialog/qrdialog.component';
 import { CustomerDashboardComponent } from './core/components/customer-dashboard/customer-dashboard.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from "@angular/material/core";
+import { RequestFuleQuotaComponent } from './core/components/request-fule-quota/request-fule-quota.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,9 @@ import { CustomerDashboardComponent } from './core/components/customer-dashboard
     GetTokenComponent,
     MyTokensComponent,
     QRDialogComponent,
-    CustomerDashboardComponent
+    CustomerDashboardComponent,
+    RequestFuleQuotaComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -73,7 +78,10 @@ import { CustomerDashboardComponent } from './core/components/customer-dashboard
     MatSelectModule,
     MatMenuModule,
     MatSidenavModule,
-    MatTableModule
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
 
   ],
   providers: [AuthGuard
