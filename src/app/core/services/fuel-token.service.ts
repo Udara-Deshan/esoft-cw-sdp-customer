@@ -12,7 +12,6 @@ export class FuelTokenService {
   constructor(private httpClient: HttpClient) {
   }
 
-
   requestToken(fuelTokenDTO: FuelTokenDTO) {
     return this.httpClient.post(this.baseUrl + 'generate', fuelTokenDTO)
   }

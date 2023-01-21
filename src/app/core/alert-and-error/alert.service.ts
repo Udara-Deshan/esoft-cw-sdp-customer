@@ -8,6 +8,8 @@ import {
   HttpSentEvent,
   HttpUserEvent
 } from "@angular/common/http";
+import {ApprovalDialogComponent} from "../dialogs/approval-dialog/approval-dialog.component";
+import {ApprovalDialogConfig} from "../dialogs/approval-dialog/ApprovalDialogConfig";
 // import {ToastrService} from "ngx-toastr";
 
 @Injectable({
@@ -42,5 +44,10 @@ export class AlertService {
 
   private handle_201(body: any): void {
     // this.toasterService.success(body.message);
+    this.dialog.open(ApprovalDialogComponent, {
+      width: '350px',
+      // height: '200px',
+      data: new ApprovalDialogConfig('Alert',"Sucsess", '')
+    });
   }
 }

@@ -1,0 +1,10 @@
+<div style="display: flex;justify-content: center;align-items: center;height: 100%">
+  <div style="width: 400px;align-items: center;display: flex;flex-direction: column">
+    <span style="font-size: 1.5rem;font-weight: 500">Current Qr</span>
+    <img style="width: 100%" [src]="imagePath">
+    <div style="display: flex;justify-content: space-between;width: 100%">
+      <span><strong>Available Amount : </strong> <span>{{availableQuota}}</span></span>
+      <span><strong>Full Amount : </strong> <span>{{fullQuota}}</span></span>
+    </div>
+  </div>
+</div>

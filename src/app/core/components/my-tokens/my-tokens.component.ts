@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FuelTokenService} from "../../services/fuel-token.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ApprovalDialogComponent} from "../../dialogs/approval-dialog/approval-dialog.component";
@@ -12,28 +12,29 @@ import {PaymentService} from "../../services/payment.service";
   styleUrls: ['./my-tokens.component.scss']
 })
 export class MyTokensComponent implements OnInit {
-  displayedColumn: string[] = ['action','tid',  'fillingTimeAnd',  'requestQuota',  'status' ,
-    'tokenExp',  'vehicleRegNo',  'fuelStationFk' , 'pidFk' ];
-  dataSource:any[] = [];
-  constructor(private tokenService:FuelTokenService,
-              private paymentService:PaymentService,
-              private matDialog:MatDialog,
+  displayedColumn: string[] = ['action', 'tid', 'fillingTimeAnd', 'requestQuota', 'status',
+    'tokenExp', 'vehicleRegNo', 'fuelStationFk', 'pidFk'];
+  dataSource: any[] = [];
 
-  ) { }
+  constructor(private tokenService: FuelTokenService,
+              private paymentService: PaymentService,
+              private matDialog: MatDialog,
+  ) {
+  }
 
   ngOnInit(): void {
-    this.tokenService.getAllTokenByUsername().subscribe((res:any)=>{
+    this.tokenService.getAllTokenByUsername().subscribe((res: any) => {
       console.log(res)
-      if (res.code==201){
-        this.dataSource=res.data;
+      if (res.code == 201) {
+        this.dataSource = res.data;
       }
     })
   }
 
-  onUpdate(element:any) {
+  onUpdate(element: any) {
   }
 
-  onDelete(element:any) {
+  onDelete(element: any) {
     this.matDialog.open(ApprovalDialogComponent, {
         width: '450px',
         // height: '200px',
@@ -51,8 +52,19 @@ export class MyTokensComponent implements OnInit {
     );
   }
 
-  onPay(element:any) {
+  onPay(element: any) {
     console.log(element)
-
+    let matDialogRef = this.matDialog.open(ApprovalDialogComponent, {
+        width: '450px',
+        // height: '200px',
+        data: new ApprovalDialogConfig('Confirm', 'Are you Sure you Want to Pay', '')
+      }
+    );
+    matDialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.paymentService.makePayment(element.pidFk?.pid).subscribe(res => {
+        })
+      }
+    })
   }
 }

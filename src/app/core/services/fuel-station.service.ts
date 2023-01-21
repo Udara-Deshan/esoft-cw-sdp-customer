@@ -25,7 +25,7 @@ export class FuelStationService {
       }
     })
   }
-  getAllFuelStationDetails(status: string) {
+  getAllFuelStationDetails() {
     return this.httpClient.get(this.baseUrl + 'getAllFuelStationDetails')
   }
 

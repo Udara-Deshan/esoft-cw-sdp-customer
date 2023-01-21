@@ -21,7 +21,10 @@ export class ErrorService {
       this.handle_404(error);
     }else if (error.status === 500){
       this.handle_500(error);
-    } else{
+    }else if(error.status === 406){
+      this.handle_406(error);
+    }
+    else{
       this.handleDefault(error);
     }
   }
@@ -60,6 +63,14 @@ export class ErrorService {
       width: '350px',
       // height: '200px',
       data: new ApprovalDialogConfig('Error', 'Error!', 'Please Try Again Shortly!')
+    });
+  }
+
+  private handle_406(error: any) {
+    this.dialog.open(ApprovalDialogComponent, {
+      width: '350px',
+      // height: '200px',
+      data: new ApprovalDialogConfig('Error', 'Error!', error.error.message)
     });
   }
 }
